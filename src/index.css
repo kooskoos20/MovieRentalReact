@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.nav {
+  background-color: #000;
+  display: block;
+}
+
+#title {
+  color: #fff;
+}
+
+td {
+  padding-left: 10px;
+}
+
+.poster {
+  height: 400px;
+  width: 250px;
+}
+
+#gap {
+  width: 300px;
+  height: 420px;
+}
