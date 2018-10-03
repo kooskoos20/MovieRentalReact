@@ -37,7 +37,7 @@ class App extends Component {
 
   retrieve() {
     const url = "https://movie-rental-51a59.firebaseio.com/movies.json";
-
+    /*
     $.ajax({
       url: url,
       success: data => {
@@ -79,6 +79,40 @@ class App extends Component {
         console.log("failed");
       }
     });
+    */
+
+    fetch(url)
+      .then(response => response.json())
+      .then(parsedJSON => {
+        let data = parsedJSON;
+        this.setState({ length: data.length });
+        let movies = [];
+        let id = "move";
+        let i = 0;
+
+        //console.log("here bud");
+
+        console.log(id + i);
+
+        data.forEach(element => {
+          console.log(element.name);
+          movies.push(
+            <MovieDisp
+              info={element}
+              id={id + i}
+              inc={this.handleIncrement}
+              dec={this.handleDecrement}
+            />
+          );
+          i++;
+        });
+        //console.log(data1[0].name);
+        //const
+        console.log(movies);
+
+        this.setState({ movieRows: movies });
+      })
+      .catch(error => console.log("parsing failed", error));
   }
 
   render() {
